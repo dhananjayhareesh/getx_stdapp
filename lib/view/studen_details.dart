@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:student_getx/model/db_student.dart';
+import 'package:student_getx/view/edit_student.dart';
 
 class StudentDetailsScreen extends StatelessWidget {
   final Student student;
@@ -13,6 +15,13 @@ class StudentDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Student Details'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.to(() => EditStudentScreen(student: student));
+              },
+              icon: const Icon(Icons.edit))
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
